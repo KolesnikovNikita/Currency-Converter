@@ -1,6 +1,7 @@
 import InputCurrency from './InputCurrency';
 import { useState, useEffect } from 'react';
 import API from './api/axios';
+import './index.css';
 
 function ConvereterCurrency() {
     
@@ -47,10 +48,10 @@ function ConvereterCurrency() {
   return (
     <div className="wrapper">
       <div className="header">
-        <p>1USD equivalent to {}UAH</p>
-        <p>1EUR equivalent to {}UAH</p>
+        <p>1USD equivalent to {format(1 * rates['UAH'] / rates['USD'])} UAH</p>
+        <p>1EUR equivalent to {format(1 * rates['UAH'] / rates['EUR'])} UAH</p>
       </div>
-    <div>
+    <div className="group">
           <InputCurrency currencies={Object.keys(rates)} amount={amount1} currency={currency1} onCurrencyChange={handleCurrency1Change}
           onAmountChange={handleAmount1Change} />
           <InputCurrency currencies={Object.keys(rates)} amount={amount2} currency={currency2} onCurrencyChange={handleCurrency2Change}
